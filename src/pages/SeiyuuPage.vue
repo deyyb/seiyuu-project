@@ -7,12 +7,12 @@
         class="self-center full-width no-outline"
         :loading="loadingState"
         :autofocus="true"
-        label="Seach Seiyuus"
+        label="Search Seiyuus"
         placeholder="Enter Name"
       />
     </q-field>
     <br />
-    {{ content }}
+    <!-- {{ content }} -->
     <br />
     <q-table
       flat
@@ -95,7 +95,7 @@ export default {
     },
     handleRowClick(evt, row, index) {
       console.log("diri", row.seiyuuId);
-      this.$router.push(`${row.seiyuuId}`);
+      this.$router.push(`/seiyuu/${row.seiyuuId}`);
     },
     async fetchSearch() {
       try {
