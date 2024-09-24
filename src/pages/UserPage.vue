@@ -35,7 +35,7 @@
 
 <script>
 export default {
-  name: "PageName",
+  name: "UserPage",
   setup() {
     function onScroll(position) {
       // when this method is invoked then it means user

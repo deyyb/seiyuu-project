@@ -62,6 +62,12 @@ const linksList = [
     link: "#/users",
   },
   {
+    title: "Game",
+    caption: "/game",
+    icon: "school",
+    link: "#/game",
+  },
+  {
     title: "Docs",
     caption: "quasar.dev",
     icon: "school",
