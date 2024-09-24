@@ -26,15 +26,18 @@ export default {
     const panning = ref(false);
     const maxdx = ref(0);
     const maxdy = ref(0);
-    const img = new Image(100, 100);
-    img.src = "src/assets/pokeball.png";
+    const ballImg = new Image(100, 100);
+    ballImg.src = "src/assets/pokeball.png";
+    const pokeImg = new Image(400, 400);
+    pokeImg.src = "src/assets/Charizard.png";
 
     return {
       info,
       panning,
       maxdx,
       maxdy,
-      img,
+      ballImg,
+      pokeImg,
 
       handlePan({ evt, ...newInfo }) {
         info.value = newInfo;
@@ -75,7 +78,7 @@ export default {
         gravity: 0.5,
         damping: 0.8,
         ground: 380, // Adjusted ground value for 400px height canvas
-        angle: 0,
+        angle: 1,
       },
       ctx: null, // Will hold the 2D context of the canvas
       isAnimating: false, // Track animation state
@@ -85,6 +88,7 @@ export default {
   },
   mounted() {
     this.initCanvas();
+    this.drawPokemon();
     this.drawBall(); // Set up the canvas when the component mounts
   },
   methods: {
@@ -93,6 +97,10 @@ export default {
       const canvas = this.$refs.ballCanvas;
       this.ctx = canvas.getContext("2d");
       this.ball.ground = canvas.height - this.ball.radius; // Ground relative to canvas height
+    },
+    drawPokemon() {
+      this.ctx.clearRect(0, 0, 800, 400);
+      this.ctx.drawImage(this.pokeImg, 300, 100, 200, 200);
     },
 
     // Draw the ball on the canvas
@@ -103,36 +111,39 @@ export default {
       // this.ctx.fillStyle = "blue";
       // this.ctx.fill();
       // this.ctx.closePath();
-      this.ctx.clearRect(0, 0, 800, 400); // Clear the canvas before each frame
-      // this.ctx.rotate(this.ball.angle);
-      // Ensure the image is loaded only once
 
-      if (this.img.complete) {
+      // this.ctx.save();
+      // this.ctx.rotate(this.ball.angle);
+      if (this.ballImg.complete) {
         // Draw the preloaded image
         this.ctx.drawImage(
-          this.img,
+          this.ballImg,
           this.ball.x - this.ball.radius,
           this.ball.y - this.ball.radius,
           this.ball.radius * 2,
           this.ball.radius * 2
         );
+        // this.ctx.translate(-this.ball.x, -this.ball.y);
+        // this.ctx.restore();
       } else {
         // In case the image hasn't loaded yet, you can optionally handle this case (e.g., show a placeholder)
-        this.img.onload = () => {
+        this.ballImg.onload = () => {
           this.ctx.drawImage(
-            img,
+            this.ballImg,
             this.ball.x - this.ball.radius,
             this.ball.y - this.ball.radius,
             this.ball.radius * 2,
             this.ball.radius * 2
           );
         };
+        // this.ctx.translate(-this.ball.x, -this.ball.y);
+        // this.ctx.restore();
       }
     },
 
     // Update ball position and handle collision with ground
     updateBall() {
-      this.ball.angle += 1;
+      this.ball.angle -= 1;
       this.ball.radius -= 0.1;
       this.ball.ground -= 0.5;
       if (this.ball.radius < 15) {
@@ -157,6 +168,7 @@ export default {
         this.ball.dx = -this.ball.dx;
       }
 
+      this.drawPokemon();
       this.drawBall(); // Redraw the ball with updated position
     },
 
@@ -179,13 +191,21 @@ export default {
         this.isAnimating = false;
 
         setTimeout(() => {
+          if (
+            this.ball.x > 300 &&
+            this.ball.x < 500 &&
+            this.ball.y > 100 &&
+            this.ball.y < 300
+          ) {
+            alert("Congratulations! You have captured a Charizard! Name it?");
+          }
           this.resetBall();
         }, 1000);
       }, 1000);
     },
 
     resetBall() {
-      this.ball.x = 400;
+      this.ball.x = Math.floor(Math.random() * 700 + 100);
       this.ball.y = 350;
       this.ball.radius = 30;
       this.ball.dx = 0;
@@ -193,6 +213,7 @@ export default {
       this.ball.gravity = 0.5;
       this.ball.damping = 0.8;
       this.ball.ground = 380;
+      this.drawPokemon();
       this.drawBall();
     },
   },
