@@ -2,12 +2,16 @@
   <q-page>
     <q-page-container v-touch-pan.prevent.mouse="handlePan">
       <div class="q-pa-md">
-        <canvas ref="ballCanvas" width="800" height="400"></canvas>
+        <canvas
+          id="ourCanvas"
+          ref="ballCanvas"
+          style="width: 100%; height: 100%"
+        ></canvas>
       </div>
     </q-page-container>
-    <q-btn label="Start Animation" @click="startAnimation" class="q-mt-md" />
+    <!-- <q-btn label="Start Animation" @click="startAnimation" class="q-mt-md" />
     <q-btn label="Next Frame" @click="updateBall" class="q-mt-md" />
-    {{ maxdx }} {{ maxdy }}
+    {{ maxdx }} {{ maxdy }} -->
     <!-- <img width="100" height="100" src="src/assets/pokeball.png" /> -->
 
     <div v-show="panning" class="touch-signal">
@@ -72,7 +76,7 @@ export default {
       ball: {
         x: 400,
         y: 350,
-        radius: 30,
+        radius: 15,
         dx: 0,
         dy: 0,
         gravity: 0.5,
@@ -84,11 +88,18 @@ export default {
       isAnimating: false, // Track animation state
       // maxdx: 0,
       // maxdy: 0,
+      canvasHeight: 0,
+      canvasWidth: 0,
     };
   },
   mounted() {
     this.initCanvas();
     this.drawPokemon();
+    this.canvasHeight = document.getElementById("ourCanvas").height;
+    this.canvasWidth = document.getElementById("ourCanvas").width;
+    this.ball.x = this.canvasWidth / 2;
+    this.ball.y = this.canvasHeight - 20;
+    this.ball.ground = this.canvasHeight - 20;
     this.drawBall(); // Set up the canvas when the component mounts
   },
   methods: {
@@ -99,8 +110,14 @@ export default {
       this.ball.ground = canvas.height - this.ball.radius; // Ground relative to canvas height
     },
     drawPokemon() {
-      this.ctx.clearRect(0, 0, 800, 400);
-      this.ctx.drawImage(this.pokeImg, 300, 100, 200, 200);
+      this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
+      this.ctx.drawImage(
+        this.pokeImg,
+        this.canvasWidth / 2 - this.canvasHeight / 2,
+        0,
+        this.canvasHeight,
+        this.canvasHeight
+      );
     },
 
     // Draw the ball on the canvas
@@ -146,9 +163,11 @@ export default {
       this.ball.angle -= 1;
       this.ball.radius -= 0.1;
       this.ball.ground -= 0.5;
-      if (this.ball.radius < 15) {
-        this.ball.radius = 15;
-        this.ball.ground = 285;
+      if (this.ball.radius < 8) {
+        this.ball.radius = 8;
+      }
+      if (this.ball.ground < this.canvasHeight * 0.7) {
+        this.ball.ground = this.canvasHeight * 0.7;
       }
       this.ball.x += this.ball.dx;
       this.ball.y += this.ball.dy;
@@ -162,7 +181,7 @@ export default {
 
       // Stop horizontal movement if ball hits left or right edge
       if (
-        this.ball.x + this.ball.radius >= 800 ||
+        this.ball.x + this.ball.radius >= this.canvasWidth ||
         this.ball.x - this.ball.radius <= 0
       ) {
         this.ball.dx = -this.ball.dx;
@@ -205,14 +224,14 @@ export default {
     },
 
     resetBall() {
-      this.ball.x = Math.floor(Math.random() * 700 + 100);
-      this.ball.y = 350;
-      this.ball.radius = 30;
+      this.ball.x = Math.floor(Math.random() * this.canvasWidth);
+      this.ball.y = this.canvasHeight - 20;
+      this.ball.radius = 15;
       this.ball.dx = 0;
       this.ball.dy = 0;
       this.ball.gravity = 0.5;
       this.ball.damping = 0.8;
-      this.ball.ground = 380;
+      this.ball.ground = this.canvasHeight - 20;
       this.drawPokemon();
       this.drawBall();
     },
