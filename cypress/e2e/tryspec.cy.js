@@ -22,4 +22,11 @@ describe("Opens the seiyuu tab", () => {
     cy.get(".cursor-pointer").contains("Rie Takahashi").click();
     cy.contains("Rie Takahashi");
   });
+
+  it("uploads one", () => {
+    cy.visit("http://localhost:9000/#/users");
+    cy.get(".q-input").type("Hiodoshi Ao");
+    cy.get(".q-footer button").click();
+    cy.get(".q-page").contains("Hiodoshi Ao");
+  });
 });

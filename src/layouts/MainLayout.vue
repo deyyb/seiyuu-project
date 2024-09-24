@@ -56,6 +56,12 @@ const linksList = [
     link: "#/seiyuu/",
   },
   {
+    title: "Users",
+    caption: "/user",
+    icon: "school",
+    link: "#/users",
+  },
+  {
     title: "Docs",
     caption: "quasar.dev",
     icon: "school",
