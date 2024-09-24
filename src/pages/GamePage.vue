@@ -8,6 +8,8 @@
     <q-btn label="Start Animation" @click="startAnimation" class="q-mt-md" />
     <q-btn label="Next Frame" @click="updateBall" class="q-mt-md" />
     {{ maxdx }} {{ maxdy }}
+    <!-- <img width="100" height="100" src="src/assets/pokeball.png" /> -->
+
     <div v-show="panning" class="touch-signal">
       <q-icon name="touch_app" />
     </div>
@@ -24,12 +26,15 @@ export default {
     const panning = ref(false);
     const maxdx = ref(0);
     const maxdy = ref(0);
+    const img = new Image(100, 100);
+    img.src = "src/assets/pokeball.png";
 
     return {
       info,
       panning,
       maxdx,
       maxdy,
+      img,
 
       handlePan({ evt, ...newInfo }) {
         info.value = newInfo;
@@ -70,6 +75,7 @@ export default {
         gravity: 0.5,
         damping: 0.8,
         ground: 380, // Adjusted ground value for 400px height canvas
+        angle: 0,
       },
       ctx: null, // Will hold the 2D context of the canvas
       isAnimating: false, // Track animation state
@@ -91,16 +97,42 @@ export default {
 
     // Draw the ball on the canvas
     drawBall() {
+      // this.ctx.clearRect(0, 0, 800, 400); // Clear the canvas before each frame
+      // this.ctx.beginPath();
+      // this.ctx.arc(this.ball.x, this.ball.y, this.ball.radius, 0, Math.PI * 2);
+      // this.ctx.fillStyle = "blue";
+      // this.ctx.fill();
+      // this.ctx.closePath();
       this.ctx.clearRect(0, 0, 800, 400); // Clear the canvas before each frame
-      this.ctx.beginPath();
-      this.ctx.arc(this.ball.x, this.ball.y, this.ball.radius, 0, Math.PI * 2);
-      this.ctx.fillStyle = "blue";
-      this.ctx.fill();
-      this.ctx.closePath();
+      // this.ctx.rotate(this.ball.angle);
+      // Ensure the image is loaded only once
+
+      if (this.img.complete) {
+        // Draw the preloaded image
+        this.ctx.drawImage(
+          this.img,
+          this.ball.x - this.ball.radius,
+          this.ball.y - this.ball.radius,
+          this.ball.radius * 2,
+          this.ball.radius * 2
+        );
+      } else {
+        // In case the image hasn't loaded yet, you can optionally handle this case (e.g., show a placeholder)
+        this.img.onload = () => {
+          this.ctx.drawImage(
+            img,
+            this.ball.x - this.ball.radius,
+            this.ball.y - this.ball.radius,
+            this.ball.radius * 2,
+            this.ball.radius * 2
+          );
+        };
+      }
     },
 
     // Update ball position and handle collision with ground
     updateBall() {
+      this.ball.angle += 1;
       this.ball.radius -= 0.1;
       this.ball.ground -= 0.5;
       if (this.ball.radius < 15) {
