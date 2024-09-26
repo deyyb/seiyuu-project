@@ -65,7 +65,13 @@ const linksList = [
     title: "Game",
     caption: "/game",
     icon: "school",
-    link: "#/game",
+    link: "#/game/1",
+  },
+  {
+    title: "Game2",
+    caption: "/game",
+    icon: "school",
+    link: "#/game/2",
   },
   {
     title: "Docs",
