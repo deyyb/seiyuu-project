@@ -5,6 +5,7 @@
 </template>
 
 <script setup>
+import { watch } from "vue";
 const props = defineProps({
   myModel: Object,
   announcement: String,
@@ -12,30 +13,44 @@ const props = defineProps({
 
 defineOptions({
   name: "Live2DComponent",
-  watch: {
-    announcement: {
-      handler(value) {
-        alert(value);
-      },
-    },
-  },
 });
 
-// const myModel = "public/models/nina with toggles/nina with toggles.model3.json";
 const bubble = "src/assets/speech_bubble.png";
 
 var app = null;
 let bubbleSprite = null;
+let announcementText = "";
+
+watch(
+  () => props.announcement,
+  (newValue) => {
+    if (newValue !== "") {
+      announceWinner(newValue);
+    }
+  }
+);
 
 function onButtonPressed() {
-  // alert("try");
-
-  // app.stage.addChild(bubble);
   if (bubbleSprite) {
     app.stage.addChildAt(bubbleSprite, 1);
   }
 
   setTimeout(function () {
+    app.stage.removeChildAt(1);
+  }, 1500);
+}
+
+function announceWinner(string) {
+  announcementText = new PIXI.Text(string);
+  announcementText.x = bubbleSprite.x;
+  announcementText.y = bubbleSprite.y;
+  if (announcementText) {
+    app.stage.addChildAt(bubbleSprite, 1);
+    app.stage.addChildAt(announcementText, 2);
+  }
+
+  setTimeout(function () {
+    app.stage.removeChildAt(2);
     app.stage.removeChildAt(1);
   }, 1500);
 }

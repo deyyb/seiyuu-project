@@ -14,13 +14,18 @@
       <q-icon name="touch_app" />
     </div>
   </q-page>
+  <live2-d-component :my-model="myObject" :announcement="announcement" />
 </template>
 
 <script>
+import Live2DComponent from "src/components/Live2DComponent.vue";
 import { ref } from "vue";
 
 export default {
   name: "BallAnimation",
+  components: {
+    Live2DComponent,
+  },
   setup() {
     const info = ref(null);
     const panning = ref(false);
@@ -84,6 +89,13 @@ export default {
       isAnimating: false, // Track animation state
       // maxdx: 0,
       // maxdy: 0,
+      myObject: {
+        model: "public/models/nina with toggles/nina with toggles.model3.json",
+        x: 0.5,
+        y: 0.5,
+        scale: 0.15,
+      },
+      announcement: "",
     };
   },
   mounted() {
@@ -197,7 +209,11 @@ export default {
             this.ball.y > 100 &&
             this.ball.y < 300
           ) {
-            alert("Congratulations! You have captured a Charizard! Name it?");
+            this.announcement =
+              "Congratulations! You have captured a Charizard! Name it?";
+            setTimeout(() => {
+              this.announcement = "";
+            }, 1000);
           }
           this.resetBall();
         }, 1000);
