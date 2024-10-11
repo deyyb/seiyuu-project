@@ -1,0 +1,24 @@
+{
+  "Version": 3,
+  "FileReferences": {
+    "Moc": "ayame 1dot2 live2d.moc3",
+    "Textures": [
+      "ayame 1dot2 live2d.8192/texture_00.png",
+      "ayame 1dot2 live2d.8192/texture_01.png"
+    ],
+    "Physics": "ayame 1dot2 live2d.physics3.json",
+    "DisplayInfo": "ayame 1dot2 live2d.cdi3.json"
+  },
+  "Groups": [
+    {
+      "Target": "Parameter",
+      "Name": "EyeBlink",
+      "Ids": ["ParamEyeLOpen", "ParamEyeROpen"]
+    },
+    {
+      "Target": "Parameter",
+      "Name": "LipSync",
+      "Ids": []
+    }
+  ]
+}
