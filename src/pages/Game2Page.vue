@@ -22,15 +22,28 @@
       </div>
     </div>
   </q-page>
+  <live2-d-component :my-model="myModel" :announcement="announcement" />
 </template>
 
 <script>
+import Live2DComponent from "src/components/Live2DComponent.vue";
+
 export default {
   name: "PageName",
+  components: {
+    Live2DComponent,
+  },
   data() {
     return {
       currentPlayer: 1,
       winningPlayer: 0,
+      myModel: {
+        model: "public/models/nina with toggles/nina with toggles.model3.json",
+        x: 0.5,
+        y: 0.5,
+        scale: 0.15,
+      },
+      announcement: "",
       buttons: [
         {
           id: 0,
@@ -156,7 +169,13 @@ export default {
     winningPlayer(newVal) {
       console.log(newVal);
       if (this.winningPlayer != 0) {
-        alert("Player #" + newVal + " won!");
+        this.announcement = "Player #" + newVal + "\nwon!";
+        setTimeout(() => {
+          this.announcement = "";
+        }, 1000);
+        console.log(this.announcement);
+
+        // alert("Player #" + newVal + " won!");
         this.resetBoard();
       }
     },

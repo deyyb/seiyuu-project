@@ -41,9 +41,11 @@ function onButtonPressed() {
 }
 
 function announceWinner(string) {
+  console.log("Announcing: ", string);
+
   announcementText = new PIXI.Text(string);
-  announcementText.x = bubbleSprite.x;
-  announcementText.y = bubbleSprite.y;
+  announcementText.x = bubbleSprite.x + 35;
+  announcementText.y = bubbleSprite.y + 20;
   if (announcementText) {
     app.stage.addChildAt(bubbleSprite, 1);
     app.stage.addChildAt(announcementText, 2);
@@ -52,7 +54,7 @@ function announceWinner(string) {
   setTimeout(function () {
     app.stage.removeChildAt(2);
     app.stage.removeChildAt(1);
-  }, 1500);
+  }, 3000);
 }
 
 (async function main() {

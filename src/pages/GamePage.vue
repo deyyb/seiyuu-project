@@ -210,7 +210,7 @@ export default {
             this.ball.y < 300
           ) {
             this.announcement =
-              "Congratulations! You have captured a Charizard! Name it?";
+              "Congratulations!\nYou have captured a\nCharizard! Name it?";
             setTimeout(() => {
               this.announcement = "";
             }, 1000);
