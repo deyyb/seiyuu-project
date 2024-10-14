@@ -12,8 +12,8 @@
           <!-- Image Section -->
           <div style="flex: 1; padding: 16px; max-width: 350px">
             <img
-              alt="seiyuuPic"
-              src="seiyuuPic"
+              :alt="seiyuuPic"
+              :src="seiyuuPic"
               style="width: 225px; height: 350px"
             />
           </div>
@@ -47,6 +47,7 @@ export default {
       seiyuuName: "placeholder",
       seiyuuTotalRoles: 0,
       seiyuuThreeRoles: [],
+      seiyuuPic: "",
     };
   },
   async mounted() {
@@ -62,7 +63,11 @@ export default {
       this.seiyuuName = response.data.seiyuuName;
       this.seiyuuTotalRoles = totalRoles.data;
       this.seiyuuThreeRoles = threeRoles.data;
+      const picNumber = await this.$api.get(`/acs/getPic/${this.seiyuuName}`);
+      console.log(picNumber);
+      this.seiyuuPic = `seiyuuPics/${picNumber.data}.jpg`;
     } catch (error) {
+      this.seiyuuPic = `seiyuuPics/default.jpg`;
       console.error("Failed to fetch data:", error);
     }
   },
