@@ -2,10 +2,10 @@
   <q-page padding>
     <!-- content -->
     <div class="q-pa-md row items-start q-gutter-md">
-      <div class="col-2" v-for="seiyuu in obj" :key="seiyuu.seiyuuName">
+      <div v-for="seiyuu in seiyuus" :key="seiyuu.seiyuuId">
         <seiyuu-card
           :seiyuu-name="seiyuu.seiyuuName"
-          :seiyuu-pic="seiyuu.seiyuuPic"
+          :seiyuu-id="seiyuu.seiyuuId"
         />
       </div>
     </div>
@@ -23,11 +23,18 @@ export default {
   data() {
     return {
       seiyuuName: "",
-      obj: [
-        { seiyuuName: "Rie Takahashi", seiyuuPic: "try" },
-        { seiyuuName: "Inori Minase", seiyuuPic: "try" },
-      ],
+      link: ``,
+      seiyuus: [],
     };
+  },
+  async mounted() {
+    try {
+      const response = await this.$api.get(`seiyuu/allSeiyuu/0`);
+      this.seiyuus = response.data;
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
   },
 };
 </script>
