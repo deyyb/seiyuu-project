@@ -5,8 +5,8 @@
     <!-- (Optional) The Header -->
     <q-header elevated style="background: white">
       <div class="row">
-        <div :class="headerSections">
-          <div class="q-pa-sm">
+        <div :class="leftHeaderSection">
+          <div class="row q-pa-sm">
             <!-- For logo and search -->
             <q-avatar size="lg" class="q-ma-xs">
               <img src="public/icons/fb.svg" />
@@ -14,6 +14,9 @@
             <q-avatar size="lg" class="bg-fb q-ma-xs">
               <q-icon name="search" color="black"></q-icon>
             </q-avatar>
+            <div v-show="!largeScreen" class="q-ma-xs">
+              <q-input dense rounded standout="bg-fb"></q-input>
+            </div>
           </div>
         </div>
 
@@ -36,10 +39,32 @@
           </q-tabs>
         </div>
 
-        <div :class="headerSections">
-          <div class="q-pa-sm">
+        <div :class="rightHeaderSection">
+          <div class="q-pt-sm flex justify-end">
             <!-- This is where right component goes-->
-            <q-drawer><q-scroll-area></q-scroll-area></q-drawer>
+            <q-avatar size="lg" class="bg-fb q-ma-xs">
+              <q-icon name="apps" color="black"></q-icon>
+            </q-avatar>
+            <q-avatar size="lg" class="bg-fb q-ma-xs">
+              <q-icon name="chat_bubble" color="black"></q-icon>
+            </q-avatar>
+            <q-avatar size="lg" class="bg-fb q-ma-xs">
+              <q-icon name="notifications" color="black"></q-icon>
+            </q-avatar>
+            <q-avatar size="lg" class="q-ma-xs">
+              <img src="public/icons/rui.jpg" />
+            </q-avatar>
+            <q-avatar
+              size="xs"
+              round
+              color="white"
+              class="overlapping"
+              style="right: 20px; margin-top: 30px"
+            >
+              <q-avatar size="14px" class="bg-fb">
+                <q-icon size="16px" name="expand_more" color="black"></q-icon>
+              </q-avatar>
+            </q-avatar>
           </div>
         </div>
       </div>
@@ -52,6 +77,7 @@
         style="background: black"
       >
         <!-- This is where left component goes -->
+        <q-drawer><q-scroll-area></q-scroll-area></q-drawer>
       </div>
       <div :class="middleSize">
         <div class="q-pa-md">
@@ -80,8 +106,10 @@ export default {
       tab: "home",
       smallScreen: false,
       mediumScreen: false,
+      largeScreen: false,
       middleSize: "col-6",
-      headerSections: "col-4",
+      rightHeaderSection: "col-4",
+      leftHeaderSection: "col-4",
     };
   },
   mounted() {
@@ -95,23 +123,30 @@ export default {
       // console.log(this.$q);
       this.smallScreen = this.$q.screen.lt.sm;
       this.mediumScreen = this.$q.screen.lt.md;
+      this.largeScreen = this.$q.screen.lt.lg;
     },
   },
   watch: {
     mediumScreen(val) {
       if (val) {
         this.middleSize = "col-9";
-        this.headerSections = "col-6";
+        this.rightHeaderSection = "col-6";
+        this.leftHeaderSection = "col-6";
       } else {
         this.middleSize = "col-6";
-        this.headerSections = "col-4";
+        this.rightHeaderSection = "col-4";
+        this.leftHeaderSection = "col-4";
       }
     },
     smallScreen(val) {
       if (val) {
         this.middleSize = "col-12";
+        this.rightHeaderSection = "col-8";
+        this.leftHeaderSection = "col-4";
       } else {
         this.middleSize = "col-9";
+        this.rightHeaderSection = "col-6";
+        this.leftHeaderSection = "col-6";
       }
     },
   },
