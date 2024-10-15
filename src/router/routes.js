@@ -19,6 +19,28 @@ const routes = [
       },
     ],
   },
+  {
+    path: "/fb/",
+    component: () => import("layouts/FacebookLayout.vue"),
+    children: [
+      {
+        path: "",
+        component: () => import("pages/IndexPage.vue"),
+      },
+      {
+        path: "videos",
+        component: () => import("pages/SeiyuuPage.vue"),
+      },
+      {
+        path: "marketplace",
+        component: () => import("pages/HomePage.vue"),
+      },
+      {
+        path: "groups",
+        component: () => import("pages/UserPage.vue"),
+      },
+    ],
+  },
 
   {
     path: "/users/",
