@@ -11,11 +11,15 @@
             <q-avatar size="lg" class="q-ma-xs">
               <img src="public/icons/fb.svg" />
             </q-avatar>
-            <q-avatar size="lg" class="bg-fb q-ma-xs">
+            <q-avatar v-if="largeScreen" size="lg" class="bg-fb q-ma-xs">
               <q-icon name="search" color="black"></q-icon>
             </q-avatar>
-            <div v-show="!largeScreen" class="q-ma-xs">
-              <q-input dense rounded standout="bg-fb"></q-input>
+            <div v-else class="q-ma-xs">
+              <q-input dense rounded standout="bg-fb text-fb">
+                <template v-slot:prepend>
+                  <q-icon name="search" />
+                </template>
+              </q-input>
             </div>
           </div>
         </div>
