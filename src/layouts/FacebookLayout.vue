@@ -1,7 +1,24 @@
 <template>
   <q-layout view="hHh lpR fff" class="bg-fb">
     <!-- Be sure to play with the Layout demo on docs -->
+    <q-dialog v-model="dialog" position="top">
+      <q-card style="width: 350px">
+        <q-linear-progress :value="0.6" color="pink" />
 
+        <q-card-section class="row items-center no-wrap">
+          <div>
+            <div class="text-weight-bold">The Walker</div>
+            <div class="text-grey">Fitz & The Tantrums</div>
+          </div>
+
+          <q-space />
+
+          <q-btn flat round icon="fast_rewind" />
+          <q-btn flat round icon="pause" />
+          <q-btn flat round icon="fast_forward" />
+        </q-card-section>
+      </q-card>
+    </q-dialog>
     <!-- (Optional) The Header -->
     <q-header elevated style="background: white">
       <div class="row">
@@ -11,11 +28,22 @@
             <q-avatar size="lg" class="q-ma-xs">
               <img src="public/icons/fb.svg" />
             </q-avatar>
-            <q-avatar v-if="largeScreen" size="lg" class="bg-fb q-ma-xs">
+            <q-avatar
+              v-if="largeScreen"
+              size="lg"
+              class="bg-fb q-ma-xs"
+              @click="openSearch"
+            >
               <q-icon name="search" color="black"></q-icon>
             </q-avatar>
             <div v-else class="q-ma-xs">
-              <q-input dense rounded standout="bg-fb text-fb">
+              <q-input
+                readonly
+                dense
+                rounded
+                standout="bg-fb text-fb"
+                @click="openSearch"
+              >
                 <template v-slot:prepend>
                   <q-icon name="search" />
                 </template>
@@ -114,6 +142,7 @@ export default {
       middleSize: "col-6",
       rightHeaderSection: "col-4",
       leftHeaderSection: "col-4",
+      dialog: false,
     };
   },
   mounted() {
@@ -128,6 +157,10 @@ export default {
       this.smallScreen = this.$q.screen.lt.sm;
       this.mediumScreen = this.$q.screen.lt.md;
       this.largeScreen = this.$q.screen.lt.lg;
+    },
+    openSearch() {
+      this.dialog = true;
+      // console.log("clicked");
     },
   },
   watch: {
