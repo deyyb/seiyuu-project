@@ -2,22 +2,7 @@
   <q-layout view="hHh lpR fff" class="bg-fb">
     <!-- Be sure to play with the Layout demo on docs -->
     <q-dialog v-model="dialog" position="top">
-      <q-card style="width: 350px">
-        <q-linear-progress :value="0.6" color="pink" />
-
-        <q-card-section class="row items-center no-wrap">
-          <div>
-            <div class="text-weight-bold">The Walker</div>
-            <div class="text-grey">Fitz & The Tantrums</div>
-          </div>
-
-          <q-space />
-
-          <q-btn flat round icon="fast_rewind" />
-          <q-btn flat round icon="pause" />
-          <q-btn flat round icon="fast_forward" />
-        </q-card-section>
-      </q-card>
+      <search-dialog @close-search="closeSearch()"></search-dialog>
     </q-dialog>
     <!-- (Optional) The Header -->
     <q-header elevated style="background: white">
@@ -42,6 +27,7 @@
                 dense
                 rounded
                 standout="bg-fb text-fb"
+                label="Search Facebook"
                 @click="openSearch"
               >
                 <template v-slot:prepend>
@@ -129,10 +115,13 @@
 </template>
 
 <script>
-import { useQuasar } from "quasar";
+import searchDialog from "src/components/searchDialog.vue";
 
 export default {
   name: "LayoutName",
+  components: {
+    searchDialog,
+  },
   data() {
     return {
       tab: "home",
@@ -161,6 +150,10 @@ export default {
     openSearch() {
       this.dialog = true;
       // console.log("clicked");
+    },
+    closeSearch() {
+      // console.log("niabot");
+      this.dialog = false;
     },
   },
   watch: {
