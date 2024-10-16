@@ -7,8 +7,8 @@
         </q-avatar>
       </div>
     </div>
-    <div class="col-7 flex items-center">
-      <div>
+    <div class="row col-7 flex items-center">
+      <div class="col-12">
         <h6 style="color: black; margin: 0 0 0 0">{{ name }}</h6>
       </div>
       <div v-if="show">

@@ -41,9 +41,11 @@
 
       <!-- For the recent searches -->
       <recent-search
-        icon-pic="public/icons/rui.jpg"
-        name="Rui Kamishiro"
-        new-value="7"
+        v-for="search in searches"
+        :key="search.name"
+        :icon-pic="search.pic"
+        :name="search.name"
+        :new-value="search.new"
       />
     </div>
   </q-card>
@@ -55,6 +57,9 @@ import RecentSearch from "./RecentSearch.vue";
 export default {
   components: {
     RecentSearch,
+  },
+  props: {
+    searches: Object,
   },
   data() {
     return {

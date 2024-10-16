@@ -2,7 +2,10 @@
   <q-layout view="hHh lpR fff" class="bg-fb">
     <!-- Be sure to play with the Layout demo on docs -->
     <q-dialog v-model="dialog" position="top">
-      <search-dialog @close-search="closeSearch()"></search-dialog>
+      <search-dialog
+        @close-search="closeSearch()"
+        :searches="searches"
+      ></search-dialog>
     </q-dialog>
     <!-- (Optional) The Header -->
     <q-header elevated style="background: white">
@@ -132,6 +135,33 @@ export default {
       rightHeaderSection: "col-4",
       leftHeaderSection: "col-4",
       dialog: false,
+      searches: [
+        {
+          pic: "public/icons/rui.jpg",
+          name: "Rui Kamishiro",
+          new: "7",
+        },
+        {
+          pic: "public/icons/kanade.jpg",
+          name: "Kanade Yoisaki",
+          new: "0",
+        },
+        {
+          pic: "public/icons/mizuki.jpg",
+          name: "Mizuki Akiyama",
+          new: "12",
+        },
+        {
+          pic: "public/icons/kohane.png",
+          name: "Kohane Azusawa",
+          new: "5",
+        },
+        {
+          pic: "public/icons/emu.png",
+          name: "Emu Otori",
+          new: "12",
+        },
+      ],
     };
   },
   mounted() {
