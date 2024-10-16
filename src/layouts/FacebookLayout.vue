@@ -91,39 +91,39 @@
       </div>
     </q-header>
 
-    <div class="row">
-      <div
-        v-show="!mediumScreen"
-        class="col-3 q-pa-md"
-        style="background: black"
-      >
-        <!-- This is where left component goes -->
-        <q-drawer><q-scroll-area></q-scroll-area></q-drawer>
-      </div>
-      <div :class="middleSize">
-        <div class="q-pa-md">
-          <!-- This is where pages get injected -->
-          <q-page-container class="fit"><router-view /></q-page-container>
+    <q-page-container>
+      <div class="row" style="height: 100%">
+        <div v-show="!mediumScreen" class="col-3 q-pa-md">
+          <!-- This is where left component goes -->
+          <left-container></left-container>
+        </div>
+        <div :class="middleSize">
+          <div class="q-pa-md">
+            <!-- This is where pages get injected -->
+            <router-view />
+          </div>
+        </div>
+        <div
+          v-show="!smallScreen"
+          class="col-3 q-pa-md"
+          style="background: black"
+        >
+          <!-- This is where right component goes-->
         </div>
       </div>
-      <div
-        v-show="!smallScreen"
-        class="col-3 q-pa-md"
-        style="background: black"
-      >
-        <!-- This is where right component goes-->
-      </div>
-    </div>
+    </q-page-container>
   </q-layout>
 </template>
 
 <script>
 import searchDialog from "src/components/searchDialog.vue";
+import LeftContainer from "src/components/LeftContainer.vue";
 
 export default {
   name: "LayoutName",
   components: {
     searchDialog,
+    LeftContainer,
   },
   data() {
     return {
