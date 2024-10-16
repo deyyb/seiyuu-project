@@ -100,7 +100,7 @@
         <div :class="middleSize">
           <div class="q-pa-md">
             <!-- This is where pages get injected -->
-            <router-view />
+            <q-page><router-view /></q-page>
           </div>
         </div>
         <div
