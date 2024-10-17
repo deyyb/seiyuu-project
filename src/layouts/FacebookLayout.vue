@@ -100,8 +100,9 @@
             <q-page><router-view /></q-page>
           </div>
         </div>
-        <div v-show="!smallScreen" class="col-3" style="background: black">
+        <div v-show="!smallScreen" class="col-3">
           <!-- This is where right component goes-->
+          <right-container></right-container>
         </div>
       </div>
     </q-page-container>
@@ -111,12 +112,14 @@
 <script>
 import searchDialog from "src/components/searchDialog.vue";
 import LeftContainer from "src/components/LeftContainer.vue";
+import RightContainer from "src/components/RightContainer.vue";
 
 export default {
   name: "LayoutName",
   components: {
     searchDialog,
     LeftContainer,
+    RightContainer,
   },
   data() {
     return {

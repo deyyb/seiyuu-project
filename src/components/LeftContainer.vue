@@ -231,13 +231,17 @@
     <div class="row q-ma-xs" style="width: 100%">
       <div class="col-6">
         <div class="flex justify-start">
-          <strong style="color: gray; margin: 0 0 0 0">Your Shortcuts</strong>
+          <strong style="color: gray; margin: 0 0 0 25px"
+            >Your Shortcuts</strong
+          >
         </div>
       </div>
       <div class="col-6">
         <div class="flex justify-end">
           <div style="color: black" class="q-mr-sm">
-            <a href="#/fb" style="text-decoration: none">edit</a>
+            <a href="#/fb" style="text-decoration: none; margin: 0 25px"
+              >edit</a
+            >
           </div>
         </div>
       </div>
