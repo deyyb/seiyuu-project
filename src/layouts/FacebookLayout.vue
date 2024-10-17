@@ -92,7 +92,7 @@
       <div class="row" style="height: 100%">
         <div v-show="!mediumScreen" class="col-3 q-pt-sm">
           <!-- This is where left component goes -->
-          <left-container></left-container>
+          <left-page :tab="tab"></left-page>
         </div>
         <div :class="middleSize">
           <div>
@@ -100,7 +100,7 @@
             <q-page><router-view /></q-page>
           </div>
         </div>
-        <div v-show="!smallScreen" class="col-3">
+        <div v-show="!smallScreen && tab === 'home'" class="col-3">
           <!-- This is where right component goes-->
           <right-container></right-container>
         </div>
@@ -111,15 +111,15 @@
 
 <script>
 import searchDialog from "src/components/searchDialog.vue";
-import LeftContainer from "src/components/LeftContainer.vue";
 import RightContainer from "src/components/RightContainer.vue";
+import LeftPage from "src/pages/LeftPage.vue";
 
 export default {
   name: "LayoutName",
   components: {
     searchDialog,
-    LeftContainer,
     RightContainer,
+    LeftPage,
   },
   data() {
     return {
@@ -158,24 +158,45 @@ export default {
   watch: {
     mediumScreen(val) {
       if (val) {
-        this.middleSize = "col-9";
-        this.rightHeaderSection = "col-6";
         this.leftHeaderSection = "col-6";
+        if (this.tab === "home") {
+          this.rightHeaderSection = "col-6";
+          this.middleSize = "col-9";
+        } else {
+          this.middleSize = "col-12";
+        }
       } else {
-        this.middleSize = "col-6";
-        this.rightHeaderSection = "col-4";
         this.leftHeaderSection = "col-4";
+        if (this.tab === "home") {
+          this.middleSize = "col-6";
+          this.rightHeaderSection = "col-4";
+        } else {
+          this.middleSize = "col-9";
+        }
       }
     },
     smallScreen(val) {
       if (val) {
         this.middleSize = "col-12";
-        this.rightHeaderSection = "col-8";
         this.leftHeaderSection = "col-4";
+        if (this.tab === "home") {
+          this.rightHeaderSection = "col-8";
+        }
+      } else {
+        this.leftHeaderSection = "col-6";
+        if (this.tab === "home") {
+          this.middleSize = "col-9";
+          this.rightHeaderSection = "col-6";
+        } else {
+          this.middleSize = "col-12";
+        }
+      }
+    },
+    tab(val) {
+      if (val === "home") {
+        this.middleSize = "col-6";
       } else {
         this.middleSize = "col-9";
-        this.rightHeaderSection = "col-6";
-        this.leftHeaderSection = "col-6";
       }
     },
   },
