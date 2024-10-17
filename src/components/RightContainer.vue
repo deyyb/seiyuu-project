@@ -2,6 +2,7 @@
   <q-scroll-area style="height: 100%">
     <SponsorsContainer></SponsorsContainer>
 
+    <!-- YOUR PAGES AND PROFILES -->
     <q-separator class="q-ma-md"></q-separator>
 
     <div class="row q-ma-xs" style="width: 100%">
@@ -49,6 +50,7 @@
       </div>
     </q-btn>
 
+    <!-- CONTACTS -->
     <q-separator class="q-ma-md"></q-separator>
 
     <div class="row q-ma-xs" style="width: 100%">
@@ -73,6 +75,28 @@
               ><q-icon name="more_horiz"></q-icon
             ></a>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMMUNITY CHATS -->
+    <q-separator class="q-ma-md"></q-separator>
+
+    <div class="row q-ma-xs" style="width: 100%">
+      <div class="col-10">
+        <div class="flex justify-start">
+          <h6 style="color: gray; margin: 0 0 0 25px">Community Chats</h6>
+        </div>
+      </div>
+    </div>
+
+    <!-- GROUP CHATS -->
+    <q-separator class="q-ma-md"></q-separator>
+
+    <div class="row q-ma-xs" style="width: 100%">
+      <div class="col-10">
+        <div class="flex justify-start">
+          <h6 style="color: gray; margin: 0 0 0 25px">Group Chats</h6>
         </div>
       </div>
     </div>
