@@ -1,5 +1,5 @@
 <template>
-  <h6 class="q-ma-md" style="margin-left: 25px; color: gray">Sponsored</h6>
+  <div class="h7-label q-ma-md" style="margin-left: 25px">Sponsored</div>
   <Sponsor
     v-for="sponsor in sponsors"
     :key="sponsor.label"
