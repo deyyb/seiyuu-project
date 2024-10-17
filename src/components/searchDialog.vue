@@ -58,12 +58,36 @@ export default {
   components: {
     RecentSearch,
   },
-  props: {
-    searches: Object,
-  },
   data() {
     return {
       inputValue: "",
+      searches: [
+        {
+          pic: "public/icons/rui.jpg",
+          name: "Rui Kamishiro",
+          new: "7",
+        },
+        {
+          pic: "public/icons/kanade.jpg",
+          name: "Kanade Yoisaki",
+          new: "0",
+        },
+        {
+          pic: "public/icons/mizuki.jpg",
+          name: "Mizuki Akiyama",
+          new: "12",
+        },
+        {
+          pic: "public/icons/kohane.png",
+          name: "Kohane Azusawa",
+          new: "5",
+        },
+        {
+          pic: "public/icons/emu.png",
+          name: "Emu Otori",
+          new: "12",
+        },
+      ],
     };
   },
   methods: {
