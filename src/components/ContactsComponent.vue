@@ -1,6 +1,12 @@
 <template>
-  <q-btn flat align="left" class="full-width" no-caps>
-    <q-avatar size="lg" class="q-ma-xs">
+  <q-btn
+    flat
+    align="left"
+    class="full-width"
+    no-caps
+    style="padding: 0 0 0 12px"
+  >
+    <q-avatar size="lg" class="q-mx-xs">
       <img :src="pic" />
     </q-avatar>
     <q-avatar
@@ -12,7 +18,7 @@
     >
       <q-avatar style="margin-left: 1px" size="10px" color="green"> </q-avatar
     ></q-avatar>
-    <div class="q-pa-xs">
+    <div class="q-px-xs">
       <span style="margin: 0 0 0 0">{{ name }}</span>
     </div>
   </q-btn>

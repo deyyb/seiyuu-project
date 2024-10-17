@@ -111,6 +111,22 @@
           </div>
         </div>
       </div>
+
+      <contacts-component
+        v-for="groupChat in groupChats"
+        :key="groupChat.name"
+        :pic="groupChat.pic"
+        :name="groupChat.name"
+      ></contacts-component>
+
+      <q-btn flat align="left" class="full-width" no-caps>
+        <q-avatar size="md" class="q-ma-xs" color="blue-grey-11">
+          <q-icon name="add"></q-icon>
+        </q-avatar>
+        <div class="q-px-xs">
+          <span style="margin: 0 0 0 0">Create group chat</span>
+        </div>
+      </q-btn>
     </div>
   </q-scroll-area>
 </template>
@@ -185,6 +201,20 @@ export default {
         {
           pic: "icons/emu.png",
           name: "KAITO",
+        },
+      ],
+      groupChats: [
+        {
+          pic: "icons/emu.png",
+          name: "WxS GC",
+        },
+        {
+          pic: "icons/emu.png",
+          name: "WxS GC (w/o Miku)",
+        },
+        {
+          pic: "icons/emu.png",
+          name: "Mga Tisoy sa Kamiyama",
         },
       ],
     };
