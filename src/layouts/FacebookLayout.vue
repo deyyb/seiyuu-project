@@ -158,18 +158,18 @@ export default {
   watch: {
     mediumScreen(val) {
       if (val) {
+        this.rightHeaderSection = "col-6";
         this.leftHeaderSection = "col-6";
         if (this.tab === "home") {
-          this.rightHeaderSection = "col-6";
           this.middleSize = "col-9";
         } else {
           this.middleSize = "col-12";
         }
       } else {
+        this.rightHeaderSection = "col-4";
         this.leftHeaderSection = "col-4";
         if (this.tab === "home") {
           this.middleSize = "col-6";
-          this.rightHeaderSection = "col-4";
         } else {
           this.middleSize = "col-9";
         }
@@ -179,14 +179,12 @@ export default {
       if (val) {
         this.middleSize = "col-12";
         this.leftHeaderSection = "col-4";
-        if (this.tab === "home") {
-          this.rightHeaderSection = "col-8";
-        }
+        this.rightHeaderSection = "col-8";
       } else {
+        this.rightHeaderSection = "col-6";
         this.leftHeaderSection = "col-6";
         if (this.tab === "home") {
           this.middleSize = "col-9";
-          this.rightHeaderSection = "col-6";
         } else {
           this.middleSize = "col-12";
         }
