@@ -26,7 +26,7 @@
     </q-btn>
     <q-btn flat align="left" class="full-width" no-caps>
       <q-avatar size="md" class="q-ma-xs">
-        <q-icon color="primary" name="bookmark"></q-icon>
+        <q-icon color="pink-14" name="bookmark"></q-icon>
       </q-avatar>
       <div class="q-pa-xs">
         <span style="margin: 0 0 0 0">Saved</span>
@@ -64,12 +64,165 @@
         <span style="margin: 0 0 0 0">Feeds</span>
       </div>
     </q-btn>
-    <q-btn flat align="left" class="full-width" no-caps>
+
+    <!-- HIDDEN ONES -->
+    <q-btn v-show="showMore" flat align="left" class="full-width" no-caps>
+      <q-avatar size="md" class="q-ma-xs">
+        <q-icon color="primary" name="bar_chart"></q-icon>
+      </q-avatar>
+      <div class="q-pa-xs">
+        <span style="margin: 0 0 0 0">Ads Manager</span>
+      </div>
+    </q-btn>
+
+    <q-btn v-show="showMore" flat align="left" class="full-width" no-caps>
+      <q-avatar size="md" class="q-ma-xs">
+        <q-icon color="primary" name="cake"></q-icon>
+      </q-avatar>
+      <div class="q-pa-xs">
+        <span style="margin: 0 0 0 0">Birthday</span>
+      </div>
+    </q-btn>
+
+    <q-btn v-show="showMore" flat align="left" class="full-width" no-caps>
+      <q-avatar size="md" class="q-ma-xs">
+        <q-icon color="light-green-8" name="compost"></q-icon>
+      </q-avatar>
+      <div class="q-pa-xs">
+        <span style="margin: 0 0 0 0">Climate Science Center</span>
+      </div>
+    </q-btn>
+
+    <q-btn v-show="showMore" flat align="left" class="full-width" no-caps>
+      <q-avatar size="md" class="q-ma-xs">
+        <q-icon color="pink-8" name="favorite"></q-icon>
+      </q-avatar>
+      <div class="q-pa-xs">
+        <span style="margin: 0 0 0 0">Dating</span>
+      </div>
+    </q-btn>
+
+    <q-btn v-show="showMore" flat align="left" class="full-width" no-caps>
+      <q-avatar size="md" class="q-ma-xs">
+        <q-icon color="white" name="event"></q-icon>
+      </q-avatar>
+      <div class="q-pa-xs">
+        <span style="margin: 0 0 0 0">Events</span>
+      </div>
+    </q-btn>
+
+    <q-btn v-show="showMore" flat align="left" class="full-width" no-caps>
+      <q-avatar size="md" class="q-ma-xs">
+        <q-icon color="orange-4" name="monetization_on"></q-icon>
+      </q-avatar>
+      <div class="q-pa-xs">
+        <span style="margin: 0 0 0 0">Fundraisers</span>
+      </div>
+    </q-btn>
+
+    <q-btn v-show="showMore" flat align="left" class="full-width" no-caps>
+      <q-avatar size="md" class="q-ma-xs">
+        <q-icon color="primary" name="dashboard"></q-icon>
+      </q-avatar>
+      <div class="q-pa-xs">
+        <span style="margin: 0 0 0 0">Gaming Video</span>
+      </div>
+    </q-btn>
+
+    <q-btn v-show="showMore" flat align="left" class="full-width" no-caps>
+      <q-avatar size="md" class="q-ma-xs">
+        <q-icon color="pink-8" name="chat_bubble"></q-icon>
+      </q-avatar>
+      <div class="q-pa-xs">
+        <span style="margin: 0 0 0 0">Messenger</span>
+      </div>
+    </q-btn>
+
+    <q-btn v-show="showMore" flat align="left" class="full-width" no-caps>
+      <q-avatar size="md" class="q-ma-xs">
+        <q-icon color="light-green-8" name="chat_bubble"></q-icon>
+      </q-avatar>
+      <div class="q-pa-xs">
+        <span style="margin: 0 0 0 0">Messenger Kids</span>
+      </div>
+    </q-btn>
+
+    <q-btn v-show="showMore" flat align="left" class="full-width" no-caps>
+      <q-avatar size="md" class="q-ma-xs">
+        <q-icon color="black" name="credit_card"></q-icon>
+      </q-avatar>
+      <div class="q-pa-xs">
+        <span style="margin: 0 0 0 0">Orders and Payments</span>
+      </div>
+    </q-btn>
+
+    <q-btn v-show="showMore" flat align="left" class="full-width" no-caps>
+      <q-avatar size="md" class="q-ma-xs">
+        <q-icon color="orange-4" name="flag"></q-icon>
+      </q-avatar>
+      <div class="q-pa-xs">
+        <span style="margin: 0 0 0 0">Pages</span>
+      </div>
+    </q-btn>
+
+    <q-btn v-show="showMore" flat align="left" class="full-width" no-caps>
+      <q-avatar size="md" class="q-ma-xs">
+        <q-icon color="primary" name="sports_esports"></q-icon>
+      </q-avatar>
+      <div class="q-pa-xs">
+        <span style="margin: 0 0 0 0">Pay Games</span>
+      </div>
+    </q-btn>
+
+    <q-btn v-show="showMore" flat align="left" class="full-width" no-caps>
+      <q-avatar size="md" class="q-ma-xs">
+        <q-icon color="primary" name="assignment_returned"></q-icon>
+      </q-avatar>
+      <div class="q-pa-xs">
+        <span style="margin: 0 0 0 0">Recent Ad Activities</span>
+      </div>
+    </q-btn>
+
+    <q-btn v-show="showMore" flat align="left" class="full-width" no-caps>
+      <q-avatar size="md" class="q-ma-xs">
+        <q-icon color="pink-4" name="movie_filter"></q-icon>
+      </q-avatar>
+      <div class="q-pa-xs">
+        <span style="margin: 0 0 0 0">Reels</span>
+      </div>
+    </q-btn>
+
+    <!-- SHOW MORE -->
+    <q-btn
+      @click="toggleMore"
+      v-show="!showMore"
+      flat
+      align="left"
+      class="full-width"
+      no-caps
+    >
       <q-avatar size="md" class="q-ma-xs" color="blue-grey-11">
         <q-icon color="black" name="expand_more"></q-icon>
       </q-avatar>
       <div class="q-pa-xs">
         <span style="margin: 0 0 0 0">See More</span>
+      </div>
+    </q-btn>
+
+    <!-- SHOW LESS -->
+    <q-btn
+      @click="toggleMore"
+      v-show="showMore"
+      flat
+      align="left"
+      class="full-width"
+      no-caps
+    >
+      <q-avatar size="md" class="q-ma-xs" color="blue-grey-11">
+        <q-icon color="black" name="expand_less"></q-icon>
+      </q-avatar>
+      <div class="q-pa-xs">
+        <span style="margin: 0 0 0 0">See Less</span>
       </div>
     </q-btn>
 
@@ -134,8 +287,9 @@
       <a class="small-lct" href="#/fb" style="font-weight: bold">Advertising</a>
       <span style="color: gray"> &#183; </span>
       <a class="small-lct" href="#/fb" style="font-weight: bold"
-        >Ad Choices <q-icon name="warning_amber"></q-icon
-      ></a>
+        >Ad Choices
+        <q-icon name="warning_amber"></q-icon>
+      </a>
       <span style="color: gray"> &#183; </span>
       <a class="small-lct" href="#/fb" style="font-weight: bold">Cookies</a>
       <span style="color: gray"> &#183; </span>
@@ -161,8 +315,15 @@
 <script>
 export default {
   // name: 'ComponentName',
-  setup() {
-    return {};
+  data() {
+    return {
+      showMore: false,
+    };
+  },
+  methods: {
+    toggleMore() {
+      this.showMore = !this.showMore;
+    },
   },
 };
 </script>
