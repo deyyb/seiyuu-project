@@ -25,7 +25,7 @@
 
       <q-btn flat align="left" class="full-width" no-caps>
         <q-avatar rounded size="md" class="q-ma-xs">
-          <img src="public/icons/wxs.jpg" />
+          <img src="icons/wxs.jpg" />
         </q-avatar>
         <div class="q-pa-xs">
           <span style="margin: 0 0 0 0">Wonderland X Showtime</span>
@@ -98,6 +98,8 @@
           </div>
         </div>
       </div>
+
+      <CommunityChat></CommunityChat>
     </div>
     <!-- GROUP CHATS -->
     <q-separator class="q-ma-md"></q-separator>
@@ -116,19 +118,73 @@
 <script>
 import SponsorsContainer from "./SponsorsContainer.vue";
 import ContactsComponent from "./ContactsComponent.vue";
+import CommunityChat from "./CommunityChat.vue";
 
 export default {
   // name: 'ComponentName',
   components: {
     SponsorsContainer,
     ContactsComponent,
+    CommunityChat,
   },
   data() {
     return {
       contacts: [
         {
-          pic: "public/icons/emu.png",
+          pic: "icons/emu.png",
           name: "Emu Otori",
+        },
+        {
+          pic: "icons/emu.png",
+          name: "Mizuki Akiyama",
+        },
+        {
+          pic: "icons/emu.png",
+          name: "Nene Kusanagi",
+        },
+        {
+          pic: "icons/emu.png",
+          name: "Tsukasa Tenma",
+        },
+        {
+          pic: "icons/emu.png",
+          name: "Akito Shinonome",
+        },
+        {
+          pic: "icons/emu.png",
+          name: "Toya Aoyagi",
+        },
+        {
+          pic: "icons/emu.png",
+          name: "An Shiraishi",
+        },
+        {
+          pic: "icons/emu.png",
+          name: "Hatsune Miku",
+        },
+        {
+          pic: "icons/emu.png",
+          name: "Hatsune Miku1",
+        },
+        {
+          pic: "icons/emu.png",
+          name: "Hatsune Miku2",
+        },
+        {
+          pic: "icons/emu.png",
+          name: "Hatsune Miku3",
+        },
+        {
+          pic: "icons/emu.png",
+          name: "Hatsune Miku4",
+        },
+        {
+          pic: "icons/emu.png",
+          name: "Hatsune Miku5",
+        },
+        {
+          pic: "icons/emu.png",
+          name: "KAITO",
         },
       ],
     };

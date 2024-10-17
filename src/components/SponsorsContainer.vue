@@ -22,13 +22,13 @@ export default {
     return {
       sponsors: [
         {
-          icon: "public/sponsors/bibideba.png",
+          icon: "sponsors/bibideba.png",
           label: "Bibideba",
           linkLabel: "youtu.be/8ZP5eqm4JqM",
           link: "https://www.youtube.com/watch?v=8ZP5eqm4JqM",
         },
         {
-          icon: "public/sponsors/marie.jpg",
+          icon: "sponsors/marie.jpg",
           label: "Marie-nyan",
           linkLabel: "/@mariechanneru",
           link: "https://www.youtube.com/@mariechanneru",

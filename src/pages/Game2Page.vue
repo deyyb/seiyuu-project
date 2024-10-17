@@ -38,7 +38,7 @@ export default {
       currentPlayer: 1,
       winningPlayer: 0,
       myModel: {
-        model: "public/models/nina with toggles/nina with toggles.model3.json",
+        model: "models/nina with toggles/nina with toggles.model3.json",
         x: 0.5,
         y: 0.5,
         scale: 0.15,

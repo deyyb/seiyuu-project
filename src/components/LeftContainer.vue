@@ -2,7 +2,7 @@
   <q-scroll-area style="height: 100%">
     <q-btn flat align="left" class="full-width" no-caps>
       <q-avatar size="md" class="q-ma-xs">
-        <img src="public/icons/rui.jpg" />
+        <img src="icons/rui.jpg" />
       </q-avatar>
       <div class="q-pa-xs">
         <span style="margin: 0 0 0 0">Rui Kamishiro</span>
@@ -249,7 +249,7 @@
 
     <q-btn flat align="left" class="full-width" no-caps>
       <q-avatar rounded size="md" class="q-ma-xs">
-        <img src="public/icons/wxs.jpg" />
+        <img src="icons/wxs.jpg" />
       </q-avatar>
       <div class="q-pa-xs">
         <span style="margin: 0 0 0 0">Wonderland X Showtime</span>
@@ -258,7 +258,7 @@
 
     <q-btn flat align="left" class="full-width" no-caps>
       <q-avatar rounded size="md" class="q-ma-xs">
-        <img src="public/icons/vbs.png" />
+        <img src="icons/vbs.png" />
       </q-avatar>
       <div class="q-pa-xs">
         <span style="margin: 0 0 0 0">VIVID Bad Squad</span>
@@ -267,7 +267,7 @@
 
     <q-btn flat align="left" class="full-width" no-caps>
       <q-avatar rounded size="md" class="q-ma-xs">
-        <img src="public/icons/n25.jpg" />
+        <img src="icons/n25.jpg" />
       </q-avatar>
       <div class="q-pa-xs">
         <span style="margin: 0 0 0 0">Nightcord at 25:00</span>
@@ -276,7 +276,7 @@
 
     <q-btn flat align="left" class="full-width" no-caps>
       <q-avatar rounded size="md" class="q-ma-xs">
-        <img src="public/icons/khs.png" />
+        <img src="icons/khs.png" />
       </q-avatar>
       <div class="q-pa-xs">
         <span style="margin: 0 0 0 0">Kamiyama High School</span>

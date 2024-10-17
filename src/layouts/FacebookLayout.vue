@@ -11,7 +11,7 @@
           <div class="row q-pa-sm">
             <!-- For logo and search -->
             <q-avatar size="lg" class="q-ma-xs">
-              <img src="public/icons/fb.svg" />
+              <img src="icons/fb.svg" />
             </q-avatar>
             <q-avatar
               v-if="largeScreen"
@@ -70,7 +70,7 @@
               <q-icon name="notifications" color="black"></q-icon>
             </q-avatar>
             <q-avatar size="lg" class="q-ma-xs">
-              <img src="public/icons/rui.jpg" />
+              <img src="icons/rui.jpg" />
             </q-avatar>
             <q-avatar
               size="xs"

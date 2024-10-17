@@ -90,27 +90,27 @@ export default {
       timeout: null,
       searches: [
         {
-          pic: "public/icons/rui.jpg",
+          pic: "icons/rui.jpg",
           name: "Rui Kamishiro",
           new: "7",
         },
         {
-          pic: "public/icons/kanade.jpg",
+          pic: "icons/kanade.jpg",
           name: "Kanade Yoisaki",
           new: "0",
         },
         {
-          pic: "public/icons/mizuki.jpg",
+          pic: "icons/mizuki.jpg",
           name: "Mizuki Akiyama",
           new: "12",
         },
         {
-          pic: "public/icons/kohane.png",
+          pic: "icons/kohane.png",
           name: "Kohane Azusawa",
           new: "5",
         },
         {
-          pic: "public/icons/emu.png",
+          pic: "icons/emu.png",
           name: "Emu Otori",
           new: "12",
         },

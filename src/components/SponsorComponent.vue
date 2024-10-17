@@ -12,9 +12,9 @@
             <div class="full-width flex item-start">
               <div>{{ label }}</div>
             </div>
-            <dic class="small-lct" style="font-size: x-small">{{
-              linkLabel
-            }}</dic>
+            <div class="small-lct" style="font-size: x-small">
+              {{ linkLabel }}
+            </div>
           </div>
         </div>
       </div>
