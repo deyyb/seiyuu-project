@@ -90,21 +90,17 @@
 
     <q-page-container>
       <div class="row" style="height: 100%">
-        <div v-show="!mediumScreen" class="col-3 q-pa-md">
+        <div v-show="!mediumScreen" class="col-3 q-pt-sm">
           <!-- This is where left component goes -->
           <left-container></left-container>
         </div>
         <div :class="middleSize">
-          <div class="q-pa-md">
+          <div>
             <!-- This is where pages get injected -->
             <q-page><router-view /></q-page>
           </div>
         </div>
-        <div
-          v-show="!smallScreen"
-          class="col-3 q-pa-md"
-          style="background: black"
-        >
+        <div v-show="!smallScreen" class="col-3" style="background: black">
           <!-- This is where right component goes-->
         </div>
       </div>
