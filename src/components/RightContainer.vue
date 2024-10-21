@@ -151,69 +151,69 @@ export default {
           name: "Emu Otori",
         },
         {
-          pic: "icons/emu.png",
+          pic: "icons/mizuki.jpg",
           name: "Mizuki Akiyama",
         },
         {
-          pic: "icons/emu.png",
+          pic: "icons/nene.jpg",
           name: "Nene Kusanagi",
         },
         {
-          pic: "icons/emu.png",
+          pic: "icons/tsukasa.png",
           name: "Tsukasa Tenma",
         },
         {
-          pic: "icons/emu.png",
+          pic: "icons/akito.jpg",
           name: "Akito Shinonome",
         },
         {
-          pic: "icons/emu.png",
+          pic: "icons/toya.png",
           name: "Toya Aoyagi",
         },
         {
-          pic: "icons/emu.png",
+          pic: "icons/an.jpg",
           name: "An Shiraishi",
         },
         {
-          pic: "icons/emu.png",
+          pic: "icons/hatsune_miku.jpg",
           name: "Hatsune Miku",
         },
         {
-          pic: "icons/emu.png",
+          pic: "icons/hatsune_miku1.jpg",
           name: "Hatsune Miku1",
         },
         {
-          pic: "icons/emu.png",
+          pic: "icons/hatsune_miku2.jpeg",
           name: "Hatsune Miku2",
         },
         {
-          pic: "icons/emu.png",
+          pic: "icons/hatsune_miku3.jpg",
           name: "Hatsune Miku3",
         },
         {
-          pic: "icons/emu.png",
+          pic: "icons/hatsune_miku4.jpg",
           name: "Hatsune Miku4",
         },
         {
-          pic: "icons/emu.png",
+          pic: "icons/hatsune_miku5.jpg",
           name: "Hatsune Miku5",
         },
         {
-          pic: "icons/emu.png",
+          pic: "icons/KAITO.jpg",
           name: "KAITO",
         },
       ],
       groupChats: [
         {
-          pic: "icons/emu.png",
+          pic: "icons/wxs.jpg",
           name: "WxS GC",
         },
         {
-          pic: "icons/emu.png",
+          pic: "icons/hatsune_miku.jpg",
           name: "WxS GC (w/o Miku)",
         },
         {
-          pic: "icons/emu.png",
+          pic: "icons/akito.jpg",
           name: "Mga Tisoy sa Kamiyama",
         },
       ],
