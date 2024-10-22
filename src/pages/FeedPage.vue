@@ -5,7 +5,7 @@
       <div class="col-6">
         <q-card style="border-radius: 8px; width: 100%">
           <div class="row flex items-center q-pa-md">
-            <q-avatar size="md" class="q-ma-xs">
+            <q-avatar size="lg" class="q-ma-xs">
               <img src="icons/fb.svg" />
             </q-avatar>
             <div class="col-auto q-mx-sm" style="width: 450px">
@@ -55,6 +55,44 @@
             </q-btn>
           </div>
         </q-card>
+
+        <q-scroll-area style="height: 245px">
+          <div class="q-py-md">
+            <q-card
+              class="my-card text-white"
+              style="width: 125px; border-radius: 10px"
+            >
+              <div style="max-width: 75px">
+                <q-img
+                  alt="icons/rui.jpg"
+                  src="icons/rui.jpg"
+                  style="width: 125px; height: 210px; border-radius: 10px"
+                >
+                  <div
+                    class="absolute-bottom text-center"
+                    style="
+                      background-color: white;
+                      color: black;
+                      font-weight: 500;
+                    "
+                  >
+                    <div class="q-pa-xs"></div>
+                    <q-avatar
+                      color="white"
+                      style="position: absolute; bottom: 38px; left: 38px"
+                      ><q-icon
+                        size="45px"
+                        color="primary"
+                        name="add_circle"
+                      ></q-icon
+                    ></q-avatar>
+                    <div>Create Story</div>
+                  </div>
+                </q-img>
+              </div>
+            </q-card>
+          </div>
+        </q-scroll-area>
       </div>
     </div>
   </q-page>
