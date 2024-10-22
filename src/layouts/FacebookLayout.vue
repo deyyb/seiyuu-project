@@ -90,7 +90,7 @@
 
     <q-page-container>
       <div class="row" style="height: 100%">
-        <div v-show="!mediumScreen" class="col-3 q-pt-sm">
+        <div v-show="!mediumScreen" class="col-3">
           <!-- This is where left component goes -->
           <left-page :tab="tab"></left-page>
         </div>

@@ -1,5 +1,6 @@
 <template>
   <q-scroll-area style="height: 100%">
+    <div class="q-pt-md"></div>
     <q-btn flat align="left" class="full-width" no-caps>
       <q-avatar size="md" class="q-ma-xs">
         <img src="icons/rui.jpg" />
