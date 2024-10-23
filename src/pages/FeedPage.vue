@@ -107,6 +107,8 @@
             ></my-day>
           </div>
         </q-scroll-area>
+
+        <timeline-post></timeline-post>
       </div>
     </div>
   </q-page>
@@ -114,10 +116,12 @@
 
 <script>
 import MyDay from "src/components/MyDay.vue";
+import TimelinePost from "src/components/TimelinePost.vue";
 export default {
   name: "FeedPage",
   components: {
     MyDay,
+    TimelinePost,
   },
   data() {
     return {
