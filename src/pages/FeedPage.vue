@@ -218,7 +218,13 @@ export default {
     },
     scroll(offset) {
       const scrollArea = this.$refs.scrollArea;
-      scrollArea.setScrollPosition("horizontal", this.myDayY + offset, 300);
+      console.log(this.myDayY);
+
+      if (offset < 0 && this.myDayY < 201) {
+        scrollArea.setScrollPosition("horizontal", 0, 300);
+      } else {
+        scrollArea.setScrollPosition("horizontal", this.myDayY + offset, 300);
+      }
     },
   },
 };
