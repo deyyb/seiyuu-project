@@ -1,5 +1,5 @@
 <template>
-  <q-scroll-area style="height: 90vh">
+  <q-scroll-area :thumb-style="thumbStyle" style="height: 92vh">
     <q-page padding>
       <!-- content -->
       <div class="flex justify-center">
@@ -57,12 +57,17 @@
             </div>
           </q-card>
 
-          <q-scroll-area style="height: 245px; width: 100%">
+          <q-scroll-area
+            ref="scrollArea"
+            :thumb-style="thumbStyle"
+            style="height: 245px; width: 100%"
+          >
             <!-- CREATE STORY -->
+
             <div
-              v-scroll.self="onScroll"
               class="row no-wrap q-py-md flex"
               style="max-width: 100%"
+              v-scroll="onScroll"
             >
               <q-card
                 class="my-card text-white q-mr-sm"
@@ -109,6 +114,28 @@
             </div>
           </q-scroll-area>
 
+          <div class="row q-px-lg">
+            <div class="col-6 flex justify-start">
+              <q-avatar
+                @click="scroll(-100)"
+                v-if="myDayY > 100"
+                size="xl"
+                color="white"
+                style="position: absolute; top: 240px"
+                ><q-icon name="chevron_left"></q-icon
+              ></q-avatar>
+            </div>
+            <div class="col-6 flex justify-end">
+              <q-avatar
+                @click="scroll(100)"
+                size="xl"
+                color="white"
+                style="position: absolute; top: 240px"
+                ><q-icon name="chevron_right"></q-icon
+              ></q-avatar>
+            </div>
+          </div>
+
           <timeline-post
             v-for="post in posts"
             :key="post.opName"
@@ -127,6 +154,7 @@
 <script>
 import MyDay from "src/components/MyDay.vue";
 import TimelinePost from "src/components/TimelinePost.vue";
+import { ref } from "vue";
 export default {
   name: "FeedPage",
   components: {
@@ -178,11 +206,19 @@ export default {
           postImg: "icons/EMU.jpg",
         },
       ],
+      thumbStyle: { opacity: 0 },
+      myDayY: 0,
+      scrollArea: null,
     };
   },
   methods: {
-    onScroll(event) {
-      console.log(event);
+    onScroll(x, y) {
+      // console.log(x, y);
+      this.myDayY = y;
+    },
+    scroll(offset) {
+      const scrollArea = this.$refs.scrollArea;
+      scrollArea.setScrollPosition("horizontal", this.myDayY + offset, 300);
     },
   },
 };
