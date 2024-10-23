@@ -56,10 +56,15 @@
           </div>
         </q-card>
 
-        <q-scroll-area style="height: 245px">
-          <div class="q-py-md">
+        <q-scroll-area style="height: 245px; width: 100%">
+          <!-- CREATE STORY -->
+          <div
+            v-scroll.self="onScroll"
+            class="row no-wrap q-py-md flex"
+            style="max-width: 100%"
+          >
             <q-card
-              class="my-card text-white"
+              class="my-card text-white q-mr-sm"
               style="width: 125px; border-radius: 10px"
             >
               <div style="max-width: 75px">
@@ -91,6 +96,15 @@
                 </q-img>
               </div>
             </q-card>
+            <!-- COMPONENTS -->
+
+            <my-day
+              v-for="myDay in myDays"
+              :key="myDay.myDayName"
+              :my-day-img="myDay.myDayImg"
+              :icon-img="myDay.iconImg"
+              :my-day-name="myDay.myDayName"
+            ></my-day>
           </div>
         </q-scroll-area>
       </div>
@@ -99,7 +113,47 @@
 </template>
 
 <script>
+import MyDay from "src/components/MyDay.vue";
 export default {
   name: "FeedPage",
+  components: {
+    MyDay,
+  },
+  data() {
+    return {
+      myDays: [
+        {
+          myDayImg: "icons/emu.png",
+          myDayName: "Akito Shinonome",
+          iconImg: "icons/akito.jpg",
+        },
+        {
+          myDayImg: "icons/emu.png",
+          myDayName: "An Shiraishi",
+          iconImg: "icons/an.jpg",
+        },
+        {
+          myDayImg: "icons/emu.png",
+          myDayName: "Mizuki Akiyama",
+          iconImg: "icons/mizuki.jpg",
+        },
+        {
+          myDayImg: "icons/emu.png",
+          myDayName: "Marie Batller",
+          iconImg: "sponsors/marie.jpg",
+        },
+        {
+          myDayImg: "icons/emu.png",
+          myDayName: "Hatsune Miku3",
+          iconImg: "icons/hatsune_miku3.jpg",
+        },
+      ],
+    };
+  },
+  methods: {
+    onScroll(event) {
+      console.log(event);
+    },
+  },
 };
 </script>
